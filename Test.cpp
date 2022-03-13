@@ -6,7 +6,7 @@
  *
  * AUTHORS: <Aldrarga ahmad>
  *
- * Date: 2021-03 
+ * Date: 2021-03
  */
 
 #include "doctest.h"
@@ -32,6 +32,8 @@ string nospaces(string input)
 
 TEST_CASE("Good input")
 {
+    CHECK(nospaces(ariel::mat(1, 1, '@', '-')) == nospaces("@"));
+    CHECK(nospaces(ariel::mat(0, 0, '@', '-')) == nospaces(""));
     CHECK(nospaces(ariel::mat(9, 7, '@', '-')) == nospaces("@@@@@@@@@\n"
                                                            "@-------@\n"
                                                            "@-@@@@@-@\n"
@@ -61,8 +63,7 @@ TEST_CASE("Good input")
                                                             "@ -@@@@@@@@@-@\n"
                                                             "@ -----------@\n"
                                                             "@ @@@@@@@@@@@@"));
-    CHECK(nospaces(ariel::mat(1, 1, '@', '-')) == nospaces("@"));
-    CHECK(nospaces(ariel::mat(0, 0, '@', '-')) == nospaces(""));
+
     CHECK(nospaces(ariel::mat(9, 7, '@', '-')) == nospaces("@@@@@@@@@\n"
                                                            "@-------@\n"
                                                            "@-@@@@@-@\n"
@@ -75,6 +76,8 @@ TEST_CASE("Good input")
 
 TEST_CASE("Bad input")
 {
+    CHECK(nospaces(ariel::mat(1, 1, '@', '-')) == nospaces("@@@@@@@"));
+    CHECK(nospaces(ariel::mat(0, 0, '@', '-')) == nospaces("@"));
     CHECK(nospaces(ariel::mat(9, 7, '@', '-')) == nospaces("@@@@@@@@@\n"
                                                            "@-@@@@@@-@\n"
                                                            "@-@@@@@-@\n"
@@ -104,8 +107,7 @@ TEST_CASE("Bad input")
                                                             "@ -@@@@@@@@@-@\n"
                                                             "@ -----------@\n"
                                                             "@ @@@@@@@@@@@@"));
-    CHECK(nospaces(ariel::mat(1, 1, '@', '-')) == nospaces("@@@@@@@"));
-    CHECK(nospaces(ariel::mat(0, 0, '@', '-')) == nospaces("@"));
+
     CHECK(nospaces(ariel::mat(9, 7, '@', '-')) == nospaces("@@@@@@@@@\n"
                                                            "@-------@\n"
                                                            "@-@@@@@-@\n"
