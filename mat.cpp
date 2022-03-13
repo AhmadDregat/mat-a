@@ -8,8 +8,8 @@ namespace ariel
 
     string mat(int w, int h, char s1, char s2)
     {
-
-        return "";
+        string str;
+        return str;
     }
 
 }

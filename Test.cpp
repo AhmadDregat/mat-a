@@ -23,10 +23,10 @@ using namespace ariel;
  */
 string nospaces(string input)
 {
-    erase(input, ' ');
-    erase(input, '\t');
-    erase(input, '\n');
-    erase(input, '\r');
+    std::erase(input, ' ');
+    std::erase(input, '\t');
+    std::erase(input, '\n');
+    std::erase(input, '\r');
     return input;
 }
 
@@ -118,16 +118,8 @@ TEST_CASE("Bad input")
     /* Add more test here */
 }
 
-TEST_CASE("even input , bad input ")
+TEST_CASE("even input")
 {
-    for (int i = 0; i < 100; i += 2)
-    {
-        for (int j = 0; j < 100; j++)
-        {
-
-            CHECK_THROWS(ariel::mat(i, j, m, k));
-        }
-    }
 
     CHECK_THROWS(ariel::mat(0, 0, '$', '%'));
     CHECK_THROWS(ariel::mat(10, 5, '$', '%'));
@@ -141,16 +133,8 @@ TEST_CASE("even input , bad input ")
     CHECK_THROWS(ariel::mat(4, 39, '#', '+'));
     CHECK_THROWS(ariel::mat(8, 73, '#', '+'));
     CHECK_THROWS(ariel::mat(20, 95, '#', '+'));
-    CHECK_THROWS(ariel::mat(14, 5, '#', '+'));
-    CHECK_THROWS(ariel::mat(12, 75, '#', '+'));
-    CHECK_THROWS(ariel::mat(10, 1, '#', '-'));
-    CHECK_THROWS(ariel::mat(10, 3, '@', '%'));
-    CHECK_THROWS(ariel::mat(10, 5, '@', '%'));
-    CHECK_THROWS(ariel::mat(10, 7, '@', '%'));
-    CHECK_THROWS(ariel::mat(10, 9, '@', '%'));
-    CHECK_THROWS(ariel::mat(10, 13, '@', '%'));
 }
-TEST_CASE("negative input-bad input ")
+TEST_CASE("negative input")
 {
     CHECK_THROWS(ariel::mat(-10, -5, '$', '%'));
     CHECK_THROWS(ariel::mat(-9, -3, '$', '%'));
@@ -159,13 +143,9 @@ TEST_CASE("negative input-bad input ")
     CHECK_THROWS(ariel::mat(-23, -33, '$', '%'));
     CHECK_THROWS(ariel::mat(-21, -53, '$', '%'));
     CHECK_THROWS(ariel::mat(-15, -83, '$', '%'));
-    CHECK_THROWS(ariel::mat(-7, -35, '$', '%'));
-    CHECK_THROWS(ariel::mat(-3, -39, '$', '%'));
-    CHECK_THROWS(ariel::mat(-7, -73, '$', '%'));
-    CHECK_THROWS(ariel::mat(-7, -73, '$', '%'));
 }
 
-TEST_CASE("Bad syntax-bad input ")
+TEST_CASE("Bad syntax")
 {
     CHECK_THROWS(ariel::mat(8, 5, 5, 5));
     CHECK_THROWS(ariel::mat('@', '@', '$', '$'));
@@ -173,5 +153,3 @@ TEST_CASE("Bad syntax-bad input ")
     CHECK_THROWS(ariel::mat('0', '7', '2', '$'));
     CHECK_THROWS(ariel::mat('8', '8', '5', '5'));
 }
-
-/* Add more test cases here */
